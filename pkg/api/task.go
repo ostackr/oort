@@ -12,5 +12,5 @@ func (pipeline *Pipeline) AddTask(id string, run func(ctx context.Context) error
 		ID:  id,
 		Run: run,
 	}
-	pipeline.Task = append(pipeline.Task, task)
+	pipeline.Tasks = append(pipeline.Tasks, task)
 }
