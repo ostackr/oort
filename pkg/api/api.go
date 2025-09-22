@@ -1,6 +1,8 @@
 package api
 
-import "context"
+import (
+	"context"
+)
 
 type Task struct {
 	ID  string
@@ -11,14 +13,16 @@ type Pipeline struct {
 	ID     string
 	Author string
 	Tags   []string
+	Cron   string
 	Task   []*Task
 }
 
-func NewPipeline(ID string, Author string, Tags []string) *Pipeline {
+func NewPipeline(ID string, Author string, Tags []string, Cron string) *Pipeline {
 	return &Pipeline{
 		ID:     ID,
 		Author: Author,
 		Tags:   Tags,
+		Cron:   Cron,
 		Task:   []*Task{},
 	}
 }

@@ -1,12 +1,17 @@
 package server
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/ostackr/oort/internal/environment"
+)
 
 var Router = http.NewServeMux()
+var Port = environment.Get("OORT_HTTP_SERVER_PORT")
 
 func StartServer() {
 	server := http.Server{
-		Addr:    ":8080",
+		Addr:    ":" + Port,
 		Handler: Router,
 	}
 	server.ListenAndServe()
